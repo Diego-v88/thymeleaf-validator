@@ -1,0 +1,3 @@
+com/thymeleafvalidator/application/service/TemplateAnalyzerServiceTest.class
+com/thymeleafvalidator/application/service/TemplateRendererServiceTest.class
+com/thymeleafvalidator/infrastructure/rest/TemplateControllerTest.class

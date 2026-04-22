@@ -1,0 +1,15 @@
+/Users/diegoviera/proyectos/thymeleaf-validator/backend/src/main/java/com/thymeleafvalidator/infrastructure/rest/dto/TemplateRequest.java
+/Users/diegoviera/proyectos/thymeleaf-validator/backend/src/main/java/com/thymeleafvalidator/domain/model/TemplateVariable.java
+/Users/diegoviera/proyectos/thymeleaf-validator/backend/src/main/java/com/thymeleafvalidator/domain/model/TemplateError.java
+/Users/diegoviera/proyectos/thymeleaf-validator/backend/src/main/java/com/thymeleafvalidator/application/service/TemplateAnalyzerService.java
+/Users/diegoviera/proyectos/thymeleaf-validator/backend/src/main/java/com/thymeleafvalidator/infrastructure/thymeleaf/ThymeleafEngineAdapter.java
+/Users/diegoviera/proyectos/thymeleaf-validator/backend/src/main/java/com/thymeleafvalidator/infrastructure/rest/TemplateController.java
+/Users/diegoviera/proyectos/thymeleaf-validator/backend/src/main/java/com/thymeleafvalidator/domain/port/in/RenderTemplateUseCase.java
+/Users/diegoviera/proyectos/thymeleaf-validator/backend/src/main/java/com/thymeleafvalidator/infrastructure/config/ThymeleafConfig.java
+/Users/diegoviera/proyectos/thymeleaf-validator/backend/src/main/java/com/thymeleafvalidator/BackendApplication.java
+/Users/diegoviera/proyectos/thymeleaf-validator/backend/src/main/java/com/thymeleafvalidator/domain/model/AnalysisResult.java
+/Users/diegoviera/proyectos/thymeleaf-validator/backend/src/main/java/com/thymeleafvalidator/domain/port/out/TemplateEnginePort.java
+/Users/diegoviera/proyectos/thymeleaf-validator/backend/src/main/java/com/thymeleafvalidator/application/service/TemplateRendererService.java
+/Users/diegoviera/proyectos/thymeleaf-validator/backend/src/main/java/com/thymeleafvalidator/domain/port/in/AnalyzeTemplateUseCase.java
+/Users/diegoviera/proyectos/thymeleaf-validator/backend/src/main/java/com/thymeleafvalidator/infrastructure/config/GlobalExceptionHandler.java
+/Users/diegoviera/proyectos/thymeleaf-validator/backend/src/main/java/com/thymeleafvalidator/domain/model/RenderResult.java

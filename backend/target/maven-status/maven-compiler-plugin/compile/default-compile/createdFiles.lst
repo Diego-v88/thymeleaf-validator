@@ -1,0 +1,15 @@
+com/thymeleafvalidator/domain/model/TemplateError.class
+com/thymeleafvalidator/application/service/TemplateRendererService.class
+com/thymeleafvalidator/infrastructure/rest/TemplateController.class
+com/thymeleafvalidator/infrastructure/config/ThymeleafConfig.class
+com/thymeleafvalidator/domain/model/TemplateVariable.class
+com/thymeleafvalidator/infrastructure/rest/dto/TemplateRequest.class
+com/thymeleafvalidator/domain/model/AnalysisResult.class
+com/thymeleafvalidator/domain/port/out/TemplateEnginePort.class
+com/thymeleafvalidator/domain/port/in/RenderTemplateUseCase.class
+com/thymeleafvalidator/domain/model/RenderResult.class
+com/thymeleafvalidator/domain/port/in/AnalyzeTemplateUseCase.class
+com/thymeleafvalidator/BackendApplication.class
+com/thymeleafvalidator/infrastructure/config/GlobalExceptionHandler.class
+com/thymeleafvalidator/infrastructure/thymeleaf/ThymeleafEngineAdapter.class
+com/thymeleafvalidator/application/service/TemplateAnalyzerService.class
