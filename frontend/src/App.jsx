@@ -47,7 +47,7 @@ function App() {
       if (result.variables && result.variables.length > 0 && activeRightTab !== 'analysis') {
         setActiveRightTab('variables');
       }
-    } catch (err) {
+    } catch {
       setErrors([{ message: t.failedToConnect, errorType: 'Network Error' }]);
     } finally {
       setIsAnalyzing(false);
@@ -89,7 +89,7 @@ function App() {
         setErrors(result.errors);
       }
       setActiveRightTab('preview');
-    } catch (err) {
+    } catch {
       setErrors([{ message: t.failedToRender, errorType: 'Network Error' }]);
     } finally {
       setIsRendering(false);
