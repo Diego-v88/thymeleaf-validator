@@ -1,61 +1,55 @@
 # Thymeleaf Validator
 
-Thymeleaf Validator es una aplicación web full-stack diseñada para analizar, interactuar y visualizar templates creados con la sintaxis de **Thymeleaf**, facilitando así la prueba de vistas sin necesidad de inicializar todo el ecosistema de una aplicación grande.
+Thymeleaf Validator is a full-stack application designed to write, validate, analyze, and render Thymeleaf templates in real-time.
 
-## Arquitectura y Técnicas de Diseño
-El proyecto divide claramente las responsabilidades utilizando las mejores prácticas de la industria:
-- **Backend (Spring Boot + Maven)**: Basado en una Arquitectura Hexagonal. Aísla completamente la lógica de validación/detección (`application/service`) y el dominio purista (`domain/model`, `domain/port`) de la forma real en la que el usuario interactúa (Interfaces REST en `infrastructure/rest`) y el procesador de templates (Adaptador `ThymeleafEngineAdapter`). Esto permite alta cohesividad e inmutabilidad, haciendo uso exhaustivo de `records` de Java.
-- **Frontend (React + Vite)**: Aplicación monorepo cliente. Utiliza CSS moderno con esquemas oscuros (`dark mode by default`), y separa el árbol de componentes (Editor, Formulario Inyectado Dinámicamente, y Visualizador) para un manejo eficiente de estados de React.
+## Features
+- **Real-Time Editor**: Syntax-highlighted template editing using CodeMirror 6 with accurate line numbers and modern scrolling.
+- **Live Preview & Render**: Immediate HTML rendering to visualize how templates resolve with mock variables.
+- **Code Analysis**: Built-in metrics and checks (accessibility, broken links, typography, and Thymeleaf structure).
+- **Responsive Viewports**: Preview your generated templates in Desktop, Tablet, and Mobile sizes.
+- **i18n**: Fully translated UI in English and Spanish.
 
-## Estructura
-```text
-thymeleaf-validator/
-├── backend/                  
-│   ├── src/main/java/com/thymeleafvalidator/
-│   │   ├── domain/           (Models inmutables y Puertos/Interfaces)
-│   │   ├── application/      (Casos de uso: Analizador y Renderizador)
-│   │   ├── infrastructure/   (Adaptadores de Entrada: Controllers REST y Manejo de Errores)
-│   │   │                     (Adaptadores de Salida: ThymeleafEngine Adapter)
-│   ├── pom.xml
-├── frontend/                 
-│   ├── src/
-│   │   ├── components/       (Componentes UI reutilizables)
-│   │   ├── services/         (Facade API Client)
-│   │   ├── App.jsx           (Orquestador Principal)
+## Project Structure
+
+This project is divided into two main applications:
+- **`frontend/`**: A React application built with Vite, Tailwind CSS, and CodeMirror.
+- **`backend/`**: A Java 25 & Spring Boot 3.5.x backend that provides the Thymeleaf engine and REST APIs.
+
+## Running with Docker Compose
+
+You can spin up both the frontend and backend simultaneously using Docker Compose.
+
+```bash
+# Build and start the containers
+docker-compose up --build
 ```
 
-## Ejecución del Proyecto
+- **Frontend**: http://localhost:5173
+- **Backend API**: http://localhost:8080
+
+## Manual Setup
+
+If you prefer to run the applications locally without Docker:
 
 ### Backend
-1. Navega a la carpeta `/backend`:
-   ```bash
-   cd backend
-   ```
-2. Inicia la aplicación Spring Boot (Se desplegará en el puerto 8080):
-   ```bash
-   ./mvnw spring-boot:run
-   ```
-   *(Si el puerto 8080 en tu máquina está ocupado, modifica `application.properties`)*
+Make sure you have **Java 25** and **Maven** installed.
+```bash
+cd backend
+mvn clean package -DskipTests
+java -jar target/backend-0.0.1-SNAPSHOT.jar
+```
 
 ### Frontend
-1. Abre una nueva terminal y navega a `/frontend`.
-2. Instala las dependencias:
-   ```bash
-   npm install
-   ```
-3. Ejecuta el entorno de desarrollo:
-   ```bash
-   npm run dev
-   ```
-4. Ingresa a `http://localhost:5173` en tu navegador.
-
-## Tests (Resultados de Ejecución)
-El backend cuenta con pruebas de los Casos de Uso (`TemplateAnalyzerServiceTest`) probando detección de variables y cierre de etiquetas, y tests de integración simulando requests HTTP a los Controladores (con `MockMvc`).
-
-**Resultado de la ejecución local (`mvn test`):**
-```text
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.467 s -- in com.thymeleafvalidator.infrastructure.rest.TemplateControllerTest
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
-[INFO] BUILD SUCCESS
-[INFO] Total time:  17.265 s
+Make sure you have **Node.js** (v18+) installed.
+```bash
+cd frontend
+npm install
+npm run dev
 ```
+
+## Testing
+
+Both applications have extensive test suites.
+
+- **Backend**: `cd backend && mvn test`
+- **Frontend**: `cd frontend && npm run test`

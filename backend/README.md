@@ -1,34 +1,24 @@
 # Thymeleaf Validator Backend
 
-Backend API for validating and rendering Thymeleaf templates.
-
-## Technologies
-- Java 25
-- Spring Boot 3.2.4
-- Maven
-- Lombok
+This is the backend service for the Thymeleaf Validator application, powered by **Spring Boot 3.5.x** and **Java 25**.
 
 ## Getting Started
 
-### Prerequisites
-- JDK 25
-- Maven 3.9+
+1. Compile the application:
+   ```bash
+   mvn clean package -DskipTests
+   ```
 
-### Running Locally
-```bash
-mvn spring-boot:run
-```
+2. Run the server:
+   ```bash
+   java -jar target/backend-0.0.1-SNAPSHOT.jar
+   ```
 
-### Running Tests
-```bash
-mvn test
-```
-
-### Building with Docker
-```bash
-docker build -t thymeleaf-validator-backend .
-```
+3. Run the test suite:
+   ```bash
+   mvn test
+   ```
 
 ## API Endpoints
-- `POST /api/analyze`: Analyzes a template to find variables and syntax errors.
-- `POST /api/render`: Renders a template with provided data.
+- `POST /api/template/render` - Renders a template given its HTML and mock variables.
+- `POST /api/template/analyze` - Parses a template and extracts variables/links/metrics.

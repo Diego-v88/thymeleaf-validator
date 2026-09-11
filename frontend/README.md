@@ -1,38 +1,32 @@
 # Thymeleaf Validator Frontend
 
-React-based IDE interface for inspecting and validating Thymeleaf templates.
-
-## Technologies
-- React 18
-- Vite
-- CodeMirror 6 (`@uiw/react-codemirror`, `@codemirror/lang-html`, `@codemirror/theme-one-dark`)
-- Vitest & Testing Library
-
-## Key Features
-- **CodeMirror 6 Engine**: Frame-perfect line number gutter scrolling across Chrome, Safari, and Firefox.
-- **Full-Height Workspace Layout**: Maximize code editor space with split panel and full-screen modes.
-- **Tabbed Right Workbench**: Toggle between extracted variables input forms and visual/source HTML render preview.
-- **Collapsible Issues Panel**: Interactive badge drawer showing syntax errors and variable validation issues.
-- **HTML Export**: Instant download of rendered templates.
+This is the frontend component of the Thymeleaf Validator application, built with **React**, **Vite**, and **Tailwind CSS**.
 
 ## Getting Started
 
-### Prerequisites
-- Node.js 20+
-- npm
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-### Running Locally
-```bash
-npm install
-npm run dev
-```
+2. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
-### Running Tests
-```bash
-npm test -- --run
-```
+3. Build for production:
+   ```bash
+   npm run build
+   ```
 
-### Building with Docker
-```bash
-docker build -t thymeleaf-validator-frontend .
-```
+4. Run tests:
+   ```bash
+   npm run test
+   ```
+
+## Features
+- Real-time editing with CodeMirror 6
+- Live preview iframe
+- Analysis tab for template insights
+- Multi-viewport (Mobile, Tablet, Desktop) support
+- i18n built-in
