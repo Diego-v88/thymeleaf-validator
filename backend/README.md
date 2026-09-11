@@ -3,7 +3,7 @@
 Backend API for validating and rendering Thymeleaf templates.
 
 ## Technologies
-- Java 21
+- Java 25
 - Spring Boot 3.2.4
 - Maven
 - Lombok
@@ -11,12 +11,17 @@ Backend API for validating and rendering Thymeleaf templates.
 ## Getting Started
 
 ### Prerequisites
-- JDK 21
+- JDK 25
 - Maven 3.9+
 
 ### Running Locally
 ```bash
-./mvnw spring-boot:run
+mvn spring-boot:run
+```
+
+### Running Tests
+```bash
+mvn test
 ```
 
 ### Building with Docker

@@ -1,3 +1,5 @@
 com/thymeleafvalidator/application/service/TemplateAnalyzerServiceTest.class
 com/thymeleafvalidator/application/service/TemplateRendererServiceTest.class
 com/thymeleafvalidator/infrastructure/rest/TemplateControllerTest.class
+com/thymeleafvalidator/infrastructure/thymeleaf/ThymeleafEngineAdapterTest.class
+com/thymeleafvalidator/infrastructure/config/GlobalExceptionHandlerTest.class

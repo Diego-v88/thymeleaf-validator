@@ -1,10 +1,12 @@
 package com.thymeleafvalidator.application.service;
 
 import com.thymeleafvalidator.domain.model.RenderResult;
+import com.thymeleafvalidator.domain.model.TemplateError;
 import com.thymeleafvalidator.domain.port.out.TemplateEnginePort;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -18,6 +20,16 @@ class TemplateRendererServiceTest {
     @Test
     void testRenderEmptyTemplate() {
         RenderResult result = service.render("", Collections.emptyMap());
+        assertEquals("", result.htmlOutput());
+        assertEquals(1, result.errors().size());
+        assertEquals("Empty template", result.errors().get(0).message());
+        
+        verifyNoInteractions(templateEnginePort);
+    }
+
+    @Test
+    void testRenderNullTemplate() {
+        RenderResult result = service.render(null, Collections.emptyMap());
         assertEquals("", result.htmlOutput());
         assertEquals(1, result.errors().size());
         assertEquals("Empty template", result.errors().get(0).message());
@@ -55,5 +67,21 @@ class TemplateRendererServiceTest {
         assertTrue(result.errors().isEmpty());
         
         verify(templateEnginePort).process(template, data);
+    }
+
+    @Test
+    void testRenderWithEngineErrors() {
+        String template = "<p th:text=\"${invalid.syntax}\"></p>";
+        Map<String, Object> data = Collections.emptyMap();
+        TemplateError error = new TemplateError(1, 5, "Could not parse expression", "Rendering");
+        
+        when(templateEnginePort.process(template, data)).thenReturn(
+            new RenderResult("", List.of(error))
+        );
+        
+        RenderResult result = service.render(template, data);
+        assertEquals("", result.htmlOutput());
+        assertEquals(1, result.errors().size());
+        assertEquals("Could not parse expression", result.errors().get(0).message());
     }
 }
